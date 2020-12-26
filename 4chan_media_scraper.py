@@ -1,4 +1,4 @@
-import re, requests, time, os, readline
+import re, requests, time, os, sys
 from requests_html import HTMLSession
 
 def get_links(user_input):
@@ -21,26 +21,33 @@ def download_content(file_extension, links, photo_counter):
         print(":: broken link. skipping...")
 
 def main():
-    file_extensions = ["png", "gif", "jpg", "jpeg"]
-
+    # add file extensions here to include them for downloading
+    file_extensions = ["png", "gif", "jpg", "jpeg", "webm"]
     photo_counter = 0
 
+    if (sys.platform == "linux" or sys.platform == "linux2"):
+        import readline
+
+    print("Insert URL(s)\ndelimit multiple links by using a space\n(Press Return to quit)")
+
     while (True):
-        user_input = input("Insert URL(s)\nDelimit multiple links by using a space\n(Press Return to quit)\n> ")
+        user_input = input("> ")
 
         if (not user_input):
             print(":: ensure you remove downloaded images from current folder to avoid accidental overwrites")
+
             quit()
 
         threads = user_input.split(" ")
 
         for x in threads:
             print(":: getting files from", x)
+
             links = get_links(x)
 
             for x in file_extensions:
                 download_content(x, links, photo_counter)
 
-            print("Done")
+            print(":: done")
 
 main()
