@@ -1,5 +1,4 @@
-# 4chan_media_scraper
-1. Execute program
-2. Insert a single link or multiple links (delimited by spaces)
+# rethyxyz-4chan-scraper
+- Insert link(s) to thread(s)
 
-Photos are then automatically downloaded to your current working directory.
+All media (webm, jpg, jpeg, png...) are automatically downloaded to your current working directory.
