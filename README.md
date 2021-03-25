@@ -1,4 +1,5 @@
-# rethyxyz-4chan-scraper
-- Insert link(s) to thread(s)
+# 4chan-scraper
+All links with matching file extensions (webm, jpg, jpeg, png...) are automatically downloaded to your current working directory.
 
-All media (webm, jpg, jpeg, png...) are automatically downloaded to your current working directory.
+## Usage
+- `4chan-scraper.sh $LINK1 $LINK2 $LINK3 ...`
