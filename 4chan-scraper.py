@@ -6,9 +6,10 @@ def get_links(user_input):
     session = HTMLSession()
     x = session.get(user_input)
     links = x.html.links
+
     return links
 
-def download_content(file_extension, links, photo_counter):
+def get_web_content(file_extension, links, photo_counter):
     x = re.compile(".*" + file_extension)
     links = list(filter(x.match, links))
 
@@ -44,11 +45,9 @@ def main():
             links = get_links(thread)
 
             for extension in file_extensions:
-                download_content(extension, links, photo_counter)
+                get_web_content(extension, links, photo_counter)
 
         print("Done")
         quit()
 
-if ((sys.platform == "linux") or (sys.platform == "linux2")):
-    import readline
 main()
