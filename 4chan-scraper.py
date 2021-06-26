@@ -1,5 +1,9 @@
-#!/usr/bin/python3
-import re, requests, time, sys, os
+import os
+import re
+import requests
+import sys
+import time
+
 from requests_html import HTMLSession
 
 def get_links(user_input):
